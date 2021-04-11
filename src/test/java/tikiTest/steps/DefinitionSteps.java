@@ -24,5 +24,9 @@ public class DefinitionSteps {
        tikivnstep.PaymentProduct();
        
     }
+    @When("^Test$")
+    public void test() throws Exception {
+
+    }
 
 }

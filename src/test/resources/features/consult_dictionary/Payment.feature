@@ -10,3 +10,5 @@ Feature: Payment demo
     Examples: 
       | email                | password     | keyword |
       | tester6103@gmail.com | cogaitheky21 | loa     |
+
+      

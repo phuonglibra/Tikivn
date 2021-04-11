@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.ibm.icu.impl.Assert;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
@@ -36,6 +38,9 @@ public class TikiPages extends PageObject{
 	WebElement btnSelectBuy;
 	@FindBy(css=".header-cart")
 	WebElement btnCart;
+	@FindBy(xpath="//a[contains(text(),'HÀNG MỚI')]")
+	WebElement lbNewProduct;
+	//span[contains(text(),'3.300.000 ₫')]
 	
 	public void inputAccountInfo(String user, String pwd) {
 		Actions actionHover = new Actions(getDriver());
@@ -52,23 +57,24 @@ public class TikiPages extends PageObject{
 		btnQuickSearch.click();
 		Thread.sleep(2000);
 		
+		
 	}
 
 	public void CheckProducts(String keyword) {
 		//show product list with keyword
 		String actualString = lbKeyword.getText();
 		assertTrue(actualString.contains(keyword));
-		String productPrice = lbPrice.getText();
+		//String productPrice = lbPrice.getText();
 		//capture any product with price greater than 500k
 		
 	}
 
 	public void SelectProduct() {
-		String productPriceInt = lbPrice.getText();
-		if (Integer.parseInt(productPriceInt)>500.000){
-			lbPrice.click();
-		}
-		//check
+//		String productPriceInt = lbPrice.getText();
+//		if (Integer.parseInt(productPriceInt)>500.000){
+//			lbPrice.click();
+//		}
+		lbNewProduct.click();
 		
 	}
 
